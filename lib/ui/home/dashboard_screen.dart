@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery/ui/bottom_navigation_bars/bottom_navy_bar_route.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -13,12 +14,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        // StickyHeader(index: 1),
-        // StickyHeader(index: 2),
-        // StickyHeader(index: 3),
-        _bottomAppBars(),
-        _bottomAppBars(),
-        _bottomAppBars(),
         _bottomAppBars(),
       ],
       reverse: false,
@@ -31,23 +26,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
       sliver: SliverList(
         delegate: SliverChildListDelegate(
           [
-            Container(color: Colors.red, height: 150.0),
-            Container(color: Colors.purple, height: 150.0),
-            Container(color: Colors.green, height: 150.0),
+            _sliverItem(
+              leading: '1',
+              text: 'bottom_navy_bar',
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BottomNavyBarRoute())),
+            ),
           ],
         ),
-        // delegate: SliverChildBuilderDelegate(
-        //   (context, i) => ListTile(
-        //     leading: CircleAvatar(
-        //       child: Text('$i'),
-        //     ),
-        //     title: const Text('List tile'),
-        //     onTap: () {
-        //
-        //     },
-        //   ),
-        //   childCount: 6,
-        // ),
       ),
     );
   }
@@ -59,6 +44,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       alignment: Alignment.centerLeft,
       child: Text(text, style: const TextStyle(color: Colors.white)),
+    );
+  }
+
+  Widget _sliverItem({required String leading, required String text, VoidCallback? onTap}) {
+    return ListTile(
+      leading: CircleAvatar(
+        child: Text(leading),
+      ),
+      title: Text(text),
+      onTap: onTap,
     );
   }
 }
