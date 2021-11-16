@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery/ui/animated_icon_route.dart';
+import 'package:flutter_gallery/ui/home/dashboard_screen.dart';
 
 class HomeRoute extends StatefulWidget {
   const HomeRoute({Key? key}) : super(key: key);
@@ -15,20 +16,21 @@ class _HomeRouteState extends State<HomeRoute> {
       appBar: AppBar(
         title: const Text('Flutter gallery'),
       ),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => const AnimatedIconRoute()));
-            },
-            child: const Text('Animated icon route'),
-          ),
-
-          //   ElevatedButton(onPressed: () {
-          // Navigator.pushNamed(context, MaterialPageRoute(builder: (_) =>AnimatedIconRoute() )),),
-          // AnimatedIconRout        }, child: const Text('Animated icon'),),
-        ],
-      ),
+      body: const DashboardScreen(),
+      // Column(
+      //   children: [
+      //     ElevatedButton(
+      //       onPressed: () {
+      //         Navigator.push(context, MaterialPageRoute(builder: (_) => const AnimatedIconRoute()));
+      //       },
+      //       child: const Text('Animated icon route'),
+      //     ),
+      //
+      //     //   ElevatedButton(onPressed: () {
+      //     // Navigator.pushNamed(context, MaterialPageRoute(builder: (_) =>AnimatedIconRoute() )),),
+      //     // AnimatedIconRout        }, child: const Text('Animated icon'),),
+      //   ],
+      // ),
     );
   }
 }
