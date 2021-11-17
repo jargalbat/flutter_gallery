@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery/ui/bottom_navigation_bars/bottom_navy_bar_route.dart';
+import 'package:flutter_gallery/ui/bottom_navigation_bars/circular_bottom_navigation_route.dart';
+import 'package:flutter_gallery/ui/bottom_navigation_bars/fancy_bottom_navigation_route.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -31,6 +33,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
               text: 'bottom_navy_bar',
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BottomNavyBarRoute())),
             ),
+            _sliverItem(
+              leading: '2',
+              text: 'fancy_bottom_navigation',
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const FancyBottomNavigationRoute()),
+              ),
+            ),
+            // _sliverItem(
+            //   leading: '3',
+            //   text: 'circular_bottom_navigation',
+            //   onTap: () => Navigator.push(
+            //     context,
+            //     MaterialPageRoute(builder: (_) => const CircularBottomNavigationRoute()),
+            //   ),
+            // ),
           ],
         ),
       ),
